@@ -69,7 +69,7 @@ jobs:
           PROJECT_NAME: acleveland
         run: |
           oc project $PROJECT_NAME
-          oc run flask-app --image ghcr.io/${{ github.repository_owner }}/training-app:latest --port 5000
+          oc run flask-app --image ghcr.io/${{ github.repository_owner }}/training-app:latest --port 5000 --port 5000 --overwrite=true
 
       - name: Teardown container
         if: always()
