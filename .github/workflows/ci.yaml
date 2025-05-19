@@ -54,6 +54,6 @@ jobs:
       - name: Teardown container
         if: always()
         run: |
-          podman stop flask-test
-          podman rm flask-test
+          podman stop flask-app
+          podman rm flask-app
 
