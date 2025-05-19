@@ -12,6 +12,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
+      - name: install oc
+        run: |
+          wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.17.8/openshift-client-linux-4.17.8.tar.gz
+          tar zxvf openshift-client-linux-4.17.8.tar.gz
+          chmod +x oc
+          mv oc /usr/local/bin
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
