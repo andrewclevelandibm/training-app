@@ -48,7 +48,7 @@ jobs:
 
       - name: tag and push image
         run: |
-          podman tag flask-app:1.0.0 ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
+          podman tag localhost/flask-app:1.0.0 ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
           podman push ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
 
       - name: Teardown container
