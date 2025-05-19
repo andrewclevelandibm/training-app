@@ -26,7 +26,7 @@ jobs:
         run: podman build -t flask-app:1.0.0 .
 
       - name: Run Flask container
-        run: podman run --name flask-app:1.0.0 -d -p 5000:5000 flask-app
+        run: podman run --name localhost/flask-app:1.0.0 -d -p 5000:5000 flask-app
 
       - name: Wait for Flask to be ready
         run: |
@@ -48,7 +48,7 @@ jobs:
 
       - name: tag and push image
         run: |
-          podman tag flask-app:1.0.0 ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
+          podman tag localhost/flask-app:1.0.0 ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
           podman push ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
 
       - name: Teardown container
