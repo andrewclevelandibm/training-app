@@ -82,7 +82,7 @@ That should show you:
 
 `{"result":5.0}`
 
-You can change the nulbers 2 and 3 at the end of the url to calcualte a different number.
+You can change the numbers 2 and 3 at the end of the url to calcualte a different number.
 
 # Containerising
 
@@ -197,7 +197,7 @@ now you are autherised to publish your image, first you want to tag your image w
 
 ```bash
 podman tag flask-app:latest ghcr.io/<username>/training-app:latest
-podman push ghci.io/<username>/training-app:latest
+podman push ghcr.io/<username>/training-app:latest
 ```
 
 You can test this worked by pulling the image with:
@@ -214,7 +214,7 @@ Now we have an image that we can deploy into whatever environments we want and c
 Rather than manually checking the results in a browser we can automate this with a test file, one has been provided in the `test` directory. it can be run with:
 
 ```bash
-python test/test_app.py
+python tests/test_app.py
 ```
 
 If it works you should see something like this:
