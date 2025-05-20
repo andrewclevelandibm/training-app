@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-
+ 
       - name: install oc
         run: |
           wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.17.8/openshift-client-linux-4.17.8.tar.gz
@@ -30,10 +30,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build podman image
-        run: podman build -t flask-app:1.0.0 .
+        run: podman build -t flask-app:latest .
 
       - name: Run Flask container
-        run: podman run --name flask-app -d -p 5000:5000 flask-app:1.0.0
+        run: podman run --name flask-app -d -p 5000:5000 flask-app:latest
 
       - name: Wait for Flask to be ready
         run: |
@@ -55,7 +55,7 @@ jobs:
 
       - name: tag and push image
         run: |
-          podman tag flask-app:1.0.0 ghcr.io/${{ github.repository_owner}}/training-app:latest
+          podman tag flask-app:latest ghcr.io/${{ github.repository_owner}}/training-app:latest
           podman push ghcr.io/${{ github.repository_owner }}/training-app:latest
 
       - name: Login to OpenShift cluster
